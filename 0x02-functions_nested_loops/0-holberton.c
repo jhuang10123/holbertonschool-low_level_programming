@@ -10,14 +10,14 @@
 int main(void)
 {
 _putchar('H');
-_putchar('O');
-_putchar('L');
-_putchar('B');
-_putchar('E');
-_putchar('R');
-_putchar('T');
-_putchar('O');
-_putchar('N');
+_putchar('o');
+_putchar('l');
+_putchar('b');
+_putchar('e');
+_putchar('r');
+_putchar('t');
+_putchar('o');
+_putchar('n');
 
  _putchar('\n');
 return (0);
