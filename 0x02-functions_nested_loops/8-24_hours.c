@@ -5,7 +5,6 @@
  *
  * Return: none
  */
-
 void jack_bauer(void)
 {
 	int h, m;
