@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include "holberton.h"
 /**
  * print_to_98 - print integers to 98
  *
- * n: integer
+ * @n: integer
  */
 void print_to_98(int n)
 {
