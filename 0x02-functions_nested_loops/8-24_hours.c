@@ -1,27 +1,25 @@
 #include <stdio.h>
 #include "holberton.h"
 /**
- * jack_bauer - print time
+ * jack_bauer - print every minute of a day
  *
- * Description: print minutes from 00:00 - 23:59
- *
- * Return:
+ * Return: none
  */
+
 void jack_bauer(void)
 {
-	int a, b, c, d;
+	int h, m;
 
-	for (a = 0)
+	for (h = 0; h <= 23; h++)
 	{
-		for ( b = 0)
-	{
-		for ( c = 0; c < 10; c++)
-	{
-		for ( d = 0; d < 10; d++)
+		for (m = 0; m <= 59; m++)
 		{
-			_putchar('%d''%d': '%d' '%d');
+			_putchar(h / 10 + '0');
+			_putchar(h % 10 + '0');
+			_putchar(':');
+			_putchar(m / 10 + '0');
+			_putchar(m % 10 + '0');
+			_putchar('\n');
 		}
-	}
-	}
 	}
 }
