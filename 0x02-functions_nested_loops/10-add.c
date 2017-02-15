@@ -11,16 +11,11 @@
  *
  * @b: 2nd integer
  *
- * Return: 0
+ * Return: sum -> a+b
  */
 int add(int a , int b)
 {
-	int a, b, c;
 
-	c = a + b
-
-		putchar ('c');
-	return (0);
-
+return (a + b);
 
 }
