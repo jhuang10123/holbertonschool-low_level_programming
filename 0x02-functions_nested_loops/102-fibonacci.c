@@ -11,7 +11,7 @@ int main(void)
 	while (n < 50)
 	{
 		f3 = f1 + f2;
-		printf("%d, ", f3);
+		printf("%d", f3);
 		f1 = f2;
 		f2 = f3;
 		if (n > 49)
