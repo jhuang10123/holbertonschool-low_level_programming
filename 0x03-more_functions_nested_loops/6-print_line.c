@@ -9,13 +9,18 @@
  */
 void print_line(int n)
 {
-	int n;
+	int a;
 
-	if (n >= 0)
+	a = 0;
+
+	if (n > 0)
 	{
-		_putchar('\n');
+		while (a < n)
+		{
+			_putchar('_');
+			a++;
+		}
 	}
-	else
-		_putchar('95\n');
+		_putchar('\n');
 
 }
