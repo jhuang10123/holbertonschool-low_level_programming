@@ -3,7 +3,8 @@
 /**
  * print_most_numbers - print integers from 0-9 with exceptions
  *
- * return: void
+ * @void: void
+ *
  */
 void print__most_numbers(void)
 {

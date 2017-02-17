@@ -3,8 +3,9 @@
 /**
  * more_numbers - print numbers 0-14
  *
- * return: void
+ * Description: print 1-14 10 times
  *
+ * return: void
  */
 void more_numbers(void)
 {
@@ -12,7 +13,7 @@ void more_numbers(void)
 
 	a = 0;
 
-	while (a < 10)
+	while (a <= 9)
 	{
 		b = 0;
 

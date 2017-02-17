@@ -15,8 +15,8 @@ int main(void)
 
 	for (a = 1; a <= 100; a++)
 	{
-		printf(" ");
-
+		if (!(a == 100))
+			printf(" ");
 		if (a % 10 == 3)
 			printf("Fizz ");
 		if (a % 10 == 5)
