@@ -1,8 +1,7 @@
 # include <stdio.h>
 #include "holberton.h"
 /**
- *
- * print_square - print square
+ * print_square - print square. new line if size = 0
  *
  * @size: size of square
  *
