@@ -1,21 +1,22 @@
 #include <stdio.h>
-#include "holberton.h"
 /**
  * main - find prime number
  *
- * Return: void
+ * Return: 0
  */
-void main(void)
-	int n, i;
-
-	n = 612852475143;
-
-for (i = 1; i <= n; i++)
+int main(void)
 {
-	if (n % i != 0)
+	long int n = 2;
+	long int i = 612852475143;
+
+	while (n < i / 2)
 	{
-		putchar('i');
+		if (i % n == 0)
+		{
+			i = i / n;
+		}
+		n++;
 	}
-	putchar(' ');
+	printf("%lu\n", i);
 	return (0);
 }
