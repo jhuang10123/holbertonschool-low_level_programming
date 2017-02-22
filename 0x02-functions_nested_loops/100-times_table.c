@@ -5,39 +5,42 @@
  *
  * Description: print times table
  *
- *@n: yest
+ *@n: integer
  */
-void print_times_table(int n)
+void print_times_table(int)
 {
-	int c, j;
+	int c, j, k;
 
+	if (n >= 0 && n <= 15)
 	{
-	for (j = 0; j < 10 ; j++)
-	{
-		for (n = 0; n < 10; n++)
+		for (c = 0; c <= n; c++)
 		{
-			c = j * n;
-			if (n == 0)
+			_putchar('0');
+			for (j = 1; j <= n; j++)
 			{
-				_putchar(c + '0');
-			}
-			if (c < 10 && n > 0)
-			{
+				k = j * c;
 				_putchar(',');
 				_putchar(' ');
-				_putchar(' ');
-				_putchar(c + '0');
+				if (k <= 9)
+				{
+					_putchar(' ');
+					_putchar(' ');
+					_putchar(k + '0');
+				}
+				else if (k <= 99)
+				{
+					_putchar(' ');
+					_putchar(k / 10 + '0');
+					_putchar(k % 10 + '0');
+				}
+				else
+				{
+					_putchar(k / 100 + '0');
+					_putchar(k % 100 / 10 + '0');
+					_putchar(k % 10 + '0');
+				}
 			}
-			if (c >= 10)
-			{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(c / 10 + '0');
-				_putchar(c % 10 + '0');
-			}
+			_putchar('\n');
 		}
-		_putchar('\n');
-	}
 	}
 }
- 
