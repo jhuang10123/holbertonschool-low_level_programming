@@ -6,12 +6,18 @@
  */
 char *rot13(char *c)
 {
-	int i, j;
-	char s[] = "abcdefghijklmABCDEFGHIJKLM";
-	char r13[] = "nopqrstuvwxyzNOPQRSTUVWXYZ";
+	int i;
 
 	for (i = 0; c[i] != 0; i++)
 	{
-		j=0;
+		if ((c[i] >= 'a' && c[i] <= 'm') || (c[i] >= 'A' && c[i] <= 'M'))
+		{
+			c[i] += 13;
+		}
+		else if ((c[i] >= 'n' && c[i] <= 'z') || (c[i] >= 'N' && c[i] <= 'Z'))
+		{
+			c[i] -= 13;
+		}
 	}
+	return (c);
 }

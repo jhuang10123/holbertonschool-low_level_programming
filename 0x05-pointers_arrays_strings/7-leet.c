@@ -14,12 +14,10 @@ char *leet(char *num)
 
 	for (i = 0; num[i] != '\0'; i++)
 	{
-		j = 0;
-		while (j > 10)
+		for (j = 0; a[j] != '\0'; j++)
 		{
 		if (num[i] == a[j])
 			num[i] = b[j];
-		j++;
 		}
 	}
 	return (num);
