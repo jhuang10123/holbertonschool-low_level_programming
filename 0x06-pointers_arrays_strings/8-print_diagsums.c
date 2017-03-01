@@ -8,17 +8,17 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int x, y;
+	int i, j;
 	int sum1 = 0;
 	int sum2 = 0;
 
-	for (x = 0; x <= size * size;  x = (size + 1))
+	for (i = 0; i <= (size * size);  i = (size + 1))
 	{
-		sum1 = sum1 + a[x];
+		sum1 = sum1 + a[i];
 	}
-	for (y = size - 1; y < (size * size) - 1; y = y + (size - 1))
+	for (j = 0; j < size * size - 1; j = j + (size - 1))
 	{
-		sum2 = sum2 + a[y];
+		sum2 = sum2 + a[j];
 	}
 	printf("%d, %d", sum1, sum2);
 	printf("\n");
