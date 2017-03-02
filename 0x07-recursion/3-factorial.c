@@ -1,12 +1,12 @@
 #include "holberton.h"
 /**
  * factorial -returns factorial of an integer
- * @n - inreger to be tested
+ * @n: inreger to be tested
  * Return: factorial or -1 for error
  */
 int factorial(int n)
 {
-	if ( n == 0)
+	if (n == 0)
 	{
 		return (1);
 	}
