@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "holberton.h"
 /**
  * main - print multiplication of 2 numbers
  * @argc: argument count
@@ -20,7 +21,7 @@ int main(int argc, char *argv[])
 
 	else
 	{
-		for (i = 0; i < argc; i++)
+		for (i = 1; i < argc; i++)
 			k *= atoi(argv[i]);
 	}
 	printf("%d\n", k);
