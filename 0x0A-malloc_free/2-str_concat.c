@@ -8,7 +8,6 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-//need revision
 	char *p;
 	int i = 0, j = 0;
 
