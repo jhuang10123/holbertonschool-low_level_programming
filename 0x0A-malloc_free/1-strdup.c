@@ -6,7 +6,6 @@
  * @str: string
  * Return: NULL of str == NULL or pointer to string
  */
-int _strlen(char *s);
 char *_strdup(char *str)
 {
 	int i;
@@ -17,7 +16,7 @@ char *_strdup(char *str)
 		return (NULL);
 
 
-	p = malloc(sizeof(*str) * j);
+	p = malloc((sizeof(*str) * j) + 1);
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
