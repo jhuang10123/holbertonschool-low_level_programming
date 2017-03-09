@@ -8,43 +8,32 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i, j;
-	char *newstr;
+	int bytes;
+	char *str;
 
-	if (ac == 0 || av == NULL)
-	{
-		return (NULL);
-	}
-	int len;
+	bytes = total_len(ac, av);
 
-	len = ac +1 + len(av);
+	str = malloc(bytes);
 
-	a = malloc(sizeof(char) * len);
-	if (a == NULL)
+	if (str == NULL)
 		return (NULL);
 
-	return (newstr);
+	copy_strs(av, str);
+	return (str);
 }
 
-
-
-int len(av)
+/**
+ * total_len - total length of all the strings
+ * @ac: argument count
+ * @av: argument vector
+ * Return: sum of total length
+ */
+int total_len(int ac, char **av)
 {
-	int l = 0;
-	int i, j;
+	int sum;
 
-	i = 0;
-	j = 0;
-
-	for (i = 0; av[i] != '\0'; i++)
-	{
-		for (j = 0; av[i][j] != '\0')
-		{
-			l++;
-		}
-	}
-
-	return (l);
+	sum = sum_len(av) + ac + 1;
+	sum = sum * sizeof(char);
+	return (sum);
 }
 
-void copy_args()
