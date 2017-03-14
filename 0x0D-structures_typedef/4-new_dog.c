@@ -7,49 +7,47 @@
  * @owner: owner
  * Return: dog_t
  */
-/* this is very wrong */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *newdogpt;
+	dog_t *new;
 	int lenname, lenown;
-	char *namecpy, *owncpy;
 
-	lenname = _strlen(name);
-	lenown = _strlen(owner);
+	new = malloc(sizeof(dog_t));
 
-	_strcpy(namecpy, name);
-	_strcpy(owncpy, owner);
-
-	if (newdogpt == NULL)
+	if (new == NULL)
 		return (NULL);
-
-	newdogpt->age = age;
 
 	if (name != NULL)
 	{
-		newdogpt->name = malloc(sizeof(dog_t) * lenname);
-		if (newdogpt->name == NULL)
+		lenname = _strlen(name);
+
+		new->name = malloc(sizeof(dog_t) * lenname);
+		if (new->name == NULL)
 		{
+			free(new);
 			return (NULL);
 		}
+		_strcpy(new->name, name);
 	}
 
 	if (owner != NULL)
 	{
-		newdogpt->owner = malloc(sizeof(dog_t) * lenown);
+		lenown = _strlen(owner);
+
+		new->owner = malloc(sizeof(dog_t) * lenown);
 		{
-			if (newdogpt->name == NULL)
+			if (new->owner == NULL)
 			{
+				free(new->name);
+				free(new);
 				return (NULL);
 			}
 		}
+		_strcpy(new->owner, owner);
 	}
-
-	return (newdogpt);
-
+	new->age = age;
+	return (new);
 }
-
-
 
 /**
  * _strlen - returns the length of a string
