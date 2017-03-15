@@ -1,5 +1,7 @@
 #include "3-calc.h"
+#include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 /**
  * get_op_func - selects function selected by user
  * @s: operator
@@ -24,6 +26,6 @@ int (*get_op_func(char *s))(int, int)
 			return (ops[i].f);
 		i++;
 	}
-	return ("Error\n");
+	printf("Error\n");
 	exit(99);
 }
