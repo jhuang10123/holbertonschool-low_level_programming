@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	a = (*get_op_func(argv[2]))(atoi(argv[1]),atoi(argv[3]));
+	a = (*get_op_func(argv[2]))(atoi(argv[1]), atoi(argv[3]));
 	printf("%d\n", a);
 	return (0);
 
