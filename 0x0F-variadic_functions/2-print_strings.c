@@ -6,11 +6,12 @@
  * @separator: string to be printed between the strings
  * @n: number of strings passed to function
  */
-/* NEED CORRECTION */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 
 	unsigned int i;
+
+	char *v;
 
 	va_list ap;
 
@@ -18,13 +19,13 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	for (i = 0; i < n; i++)
 	{
-
-		if (va_arg(ap, char*) == NULL)
+		v = va_arg(ap, char*);
+		if (v == NULL)
 			printf("(nil)");
+		else
+			printf("%s", v);
 
-		printf("%s", va_arg(ap, char*));
-
-		if (i != n && separator != NULL)
+		if (i != (n - 1) && separator != NULL)
 		{
 			printf("%s", separator);
 		}
