@@ -4,55 +4,55 @@
 #include <stdarg.h>
 /**
  * p_char - prints char
- * @c: char
+ * @args: va_list
  */
-void p_char(va_list c)
+void p_char(va_list args)
 {
-	printf("%c", va_arg(c, int));
+	printf("%c", va_arg(args, int));
 }
 
 /**
  * p_int - prints integer
- * @i: int
+ * @args: va_list
  */
-void p_int(va_list i)
+void p_int(va_list args)
 {
-	printf("%d", va_arg(i, int));
+	printf("%d", va_arg(args, int));
 }
 
 /**
  * p_float - prints float
  *
- * @f: float
+ * @args: va_list
  */
-void p_float(va_list f)
+void p_float(va_list args)
 {
-	printf("%f", va_arg(f, double));
+	printf("%f", va_arg(args, double));
 }
 
 /**
  * p_s - prints string
- * @s: string
+ * @args: va_list
  */
-void p_s(va_list s)
+void p_s(va_list args)
 {
 	char *str;
 
-	str = va_arg(s, char*);
-	if (*str == '\0')
+	str = va_arg(args, char*);
+	if (str == NULL)
 		printf("(nil)");
 	printf("%s", str);
 }
 
 /**
  * print_all - function that prints anything
- * @format: types of arguments passed to function
+ * @format: takes in format
  */
 void print_all(const char * const format, ...)
 {
 	int i, j;
 	char *sep;
-	va_list ap;
+	va_list args;
 
 	formats types[] = {
 		{"c", p_char},
@@ -61,19 +61,21 @@ void print_all(const char * const format, ...)
 		{"s", p_s},
 		{NULL, NULL},
 	};
-	va_start(ap, format);
+	va_start(args, format);
 	sep = "";
-	i = j = 0;
-	while (format[i] != '\0')
+
+	i = 0;
+
+	while (format != NULL && format[i] != '\0')
 	{
 		j = 0;
 		while (types[j].type != NULL)
 		{
-			if (format[i] == *(types[j]).type)
+			if (format[i] == types[j].type[0])
 			{
 				printf("%s", sep);
-				types[j].f(ap);
-				sep = ",";
+				types[j].f(args);
+				sep = ", ";
 			}
 			j++;
 		}
@@ -81,5 +83,5 @@ void print_all(const char * const format, ...)
 	}
 
 	printf("\n");
-	va_end(ap);
+	va_end(args);
 }
