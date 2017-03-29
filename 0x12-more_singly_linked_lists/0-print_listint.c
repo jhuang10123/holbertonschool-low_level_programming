@@ -9,9 +9,9 @@ size_t print_listint(const listint_t *h)
 {
 	unsigned int i;
 
-	const listint_t *temp;
+	listint_t *temp;
 
-	temp = h;
+       	temp = h;
 	i = 0;
 	while (temp != NULL)
 	{
