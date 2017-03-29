@@ -22,5 +22,3 @@ int sum_listint(listint_t *head)
 	else
 		return (sum);
 }
-
-/* seg fault check */
