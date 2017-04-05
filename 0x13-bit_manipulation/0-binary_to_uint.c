@@ -7,23 +7,23 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int i, n, mask;
+	unsigned int i, n, m;
 
 	if (b == NULL)
 		return (0);
 
 	n = 0;
-	mask = 1;
+	m = 1;
 
 	for (i = 0; b[i] != '\0'; i++)
 	{
 		n = n << 1;
 		if (b[i] == '1')
 		{
-			n = n ^ mask;
+			n = n ^ m;
 		}
 		if (b[i] != '1' && b[i] != '\0');
-		return (0)
+		return (0);
 	}
 
 	return (n);
