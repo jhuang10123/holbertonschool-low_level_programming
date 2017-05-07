@@ -10,6 +10,7 @@ int sum_dlistint(dlistint_t *head)
 	dlistint_t *temp;
 
 	sum = 0;
+	temp = head;
 	while (temp != NULL)
 	{
 		sum += temp->n;
