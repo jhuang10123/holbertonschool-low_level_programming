@@ -17,15 +17,11 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	newnode->prev = NULL;
 /* check if list is empty, if empty, then ptr to next node will be NULL */
 	if (head == NULL)
-	{
 		newnode->next = NULL;
-		*head = newnode;
-	}
 
-	else /* if not empty, ptr to next will be previous head/prev.first node */
-	{
+	else /* ptr to next will be previous head/prev.first node */
 		newnode->next = *head;
-		*head = newnode;
-	}
+
+	*head = newnode;
 	return (newnode);
 }
