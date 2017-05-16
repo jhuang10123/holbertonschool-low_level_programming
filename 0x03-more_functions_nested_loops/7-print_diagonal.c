@@ -13,19 +13,18 @@ void print_diagonal(int n)
 		_putchar('\n');
 	else
 	{
-		for (lines = 1; lines < n; lines++)
+		for (lines = 0; lines <= n; lines++)
 		{
-			for (spaces = 1; spaces <= lines; spaces++)
+			for (spaces = 0; spaces <= lines; spaces++)
 			{
 				if (lines == spaces)
 				{
 					_putchar('\\');
-					_putchar('\n');
-				}
+								}
 				else
 					_putchar(' ');
 			}
-
+			_putchar('\n');
 		}
 	}
 }
