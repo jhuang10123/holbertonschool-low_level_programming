@@ -7,23 +7,23 @@
  */
 void print_diagonal(int n)
 {
-	int lines, spaces;
+	int i, k;
 
 	if (n <= 0)
-	{
 		_putchar('\n');
-		return;
-	}
-	for (lines = 0; lines < n; lines++)
-	{
-		for (spaces = 0; spaces <= lines; spaces++)
-		{
-			_putchar(' ');
-			if (lines == spaces)
-				_putchar('\\');
-		}
 
-		_putchar('\n');
+	for (i = 0; i < n; i++) /* num. of rows */
+	{
+		for (k = 0; k <= i; k++) /* spaces */
+		{
+			if (i == k)
+			{
+				_putchar('\\');
+				_putchar('\n');
+			}
+			else
+				_putchar(' ');
+		}
 	}
 
 }
