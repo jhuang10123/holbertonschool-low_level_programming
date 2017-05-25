@@ -13,7 +13,7 @@ void rev_string(char *s)
 
 	while (s[i] != '\0') /* get to end of string */
 		i++;
-	i -=1; /* go to char before null byte */
+	i--; /* go to char before null byte */
 
 	while (j < i)
 	{
