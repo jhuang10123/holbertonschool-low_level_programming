@@ -25,6 +25,6 @@ char *_strcat(char *dest, char *src)
 	}
 
 /* add nul to end of new dest string */
-	dest = '\0';
+	dest += '\0';
 	return (dest);
 }
