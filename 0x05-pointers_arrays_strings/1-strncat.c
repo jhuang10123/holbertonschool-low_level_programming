@@ -3,6 +3,7 @@
 * _strncat - concatenates two strings
 * @dest: resulting string
 * @src: string to append
+* @n: num of bytes
 * Return: dest
 */
 char *_strncat(char *dest, char *src, int n)
