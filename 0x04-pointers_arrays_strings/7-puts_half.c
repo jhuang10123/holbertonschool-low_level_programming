@@ -20,7 +20,7 @@ int _strlen(char *s)
  */
 void puts_half(char *str)
 {
-	int i, len, last_half;
+	int len, last_half;
 
 	len = _strlen(str);
 
@@ -28,10 +28,13 @@ void puts_half(char *str)
 		last_half = len / 2;
 
 	else
-		last_half = len + 1;
+		last_half = (len + 1) / 2;
 
-	for (i = last_half; str[i] != '\0'; i++)
-		_putchar(str[i]);
-
+/*	for (i = last_half; str[i] != '\0'; i++) */
+	while (last_half < len)
+	{
+		_putchar(str[last_half]);
+		last_half++;
+	}
 	_putchar('\n');
 }
