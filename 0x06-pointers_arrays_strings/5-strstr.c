@@ -13,18 +13,15 @@ char *_strstr(char *haystack, char *needle)
 	{
 		for (j = 0; needle[j] != '\0'; j++)
 		{
-			if (haystack[i + j] == needle[j])
-			{
-	 /* printf("haystack = %s, i = %d\n", haystack, i);*/
-	 /*  printf("%s\n", haystack + i); */
-				return (haystack + i);
-			}
-				else
-					break;
-			if (needle[j] == '\0')
-				return (NULL);
-
+/* con't until != */
+			if (haystack[i + j] != needle[j])
+				break;
 		}
+
+/* return once iterated through end of needle successfully */
+		if (needle[j] == '\0')
+			return (haystack + i);
+
 	}
 		return (NULL);
 
