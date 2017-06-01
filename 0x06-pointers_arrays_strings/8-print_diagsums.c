@@ -14,12 +14,12 @@ void print_diagsums(int *a, int size)
 	for (i = 0; i < size; i++)
 	{
 		k = (i * size) + 1;
-		left_sum = *(a + k);
+		left_sum += *(a + k);
 
 		for (j = 0; j < size; j++)
 		{
 			k = (j * size) + size - 1 - j;
-			right_sum = *(a + k);
+			right_sum += *(a + k);
 		}
 
 	}
