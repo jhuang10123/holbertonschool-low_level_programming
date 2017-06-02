@@ -7,30 +7,15 @@
  */
 int _prime(int n, int i)
 {
-	int count, res;
 
-	res = 0;
-        if (i == 1)
-		res += _prime (n, i + 1);
+        if (i >= n)
+                return (1);
 
-/* exit condition */
-	if (i >= n)
+	if (n % i == 0)
 		return (0);
 
-	count = n % i;
-
-	return (count);
-
-/*
-
-
-	_prime(n, i + 1);
-
-	if (n % i != 0)
-		return (1);
-
-	return (0);
-*/
+	else
+		return (_prime(n, i + 1));
 
 }
 /**
@@ -40,13 +25,9 @@ int _prime(int n, int i)
 */
 int is_prime_number(int n)
 {
-	int count;
-
 	if (n <= 1)
 		return (0);
 
-	return ( _prime(n, 1));
+	return ( _prime(n, 2));
 
-
-	return (count);
 }
