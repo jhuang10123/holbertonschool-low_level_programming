@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * main - main
+ * main - prints the number of arguments passed in
  * @argc: argument count
  * @argv: pointer to argument strings
  * Return: always 0
