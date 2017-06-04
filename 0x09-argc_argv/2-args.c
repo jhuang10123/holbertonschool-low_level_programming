@@ -2,7 +2,7 @@
 /**
  * main - prints all arguments
  * @argc: argument count
- * @argc: pointer to argument strings
+ * @argv: pointer to argument strings
  * Return: always 0
  */
 int main(int argc, char *argv[])
