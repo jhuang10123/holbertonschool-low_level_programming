@@ -7,24 +7,23 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, row, j, sum, len;
+	int i, sum, len, col;
 
 	if (argc == 1)
 		printf("0\n");
 
-	len = strlen(argv[row]);
 	sum = 0;
 
 /* iterate through arguments */
-	for (row = 1; row < argc; row++)
+	for (i = 1; i < argc; i++)
 	{
+		len = strlen(argv[i]);
 /* iterate through each argument string */
 		for (col = 0; col < len; col++)
 			{
-				if (argv[i][j] >= '0' && argv[i][j] <= '9');
+				if(argv[i][col] >= '0' && argv[i][col] <= '9')
 				{
 					sum += atoi(argv[i]);
-					printf("%d\n", sum);
 				}
 
 				else
@@ -33,6 +32,8 @@ int main(int argc, char *argv[])
 					return (1);
 				}
 			}
+	}
 
+	printf("%d\n", sum);
 	return (0);
 }
