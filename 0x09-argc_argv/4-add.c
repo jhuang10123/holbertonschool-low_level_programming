@@ -2,7 +2,7 @@
 /**
  * main - adds positive number
  * @argc: argument count
- * @argc: pointer to argument strings
+ * @argv: pointer to argument strings
  * Return: always 0
  */
 int main(int argc, char *argv[])
@@ -21,20 +21,18 @@ int main(int argc, char *argv[])
 	for (i = 1; i < argc; i++)
 	{
 		len = strlen(argv[i]);
-/* iterate through each argument string */
+		/* iterate through each argument string */
 		for (col = 0; col < len; col++)
-			{
-				if(argv[i][col] >= '0' && argv[i][col] <= '9')
-				{
-					sum += atoi(argv[i]);
-				}
+		{
+			if (argv[i][col] >= '0' && argv[i][col] <= '9')
+				sum += atoi(argv[i]);
 
-				else
-				{
-					printf("Error\n");
-					return (1);
-				}
+			else
+			{
+				printf("Error\n");
+				return (1);
 			}
+		}
 	}
 
 	printf("%d\n", sum);
