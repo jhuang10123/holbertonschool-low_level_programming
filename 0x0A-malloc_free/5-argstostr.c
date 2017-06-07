@@ -9,11 +9,11 @@ char *argstostr(int ac, char **av)
 {
 
 	char *ptr;
-	int len, i, j, k, s;
+	int len, i, j, k;
 
 	len = 0;
 
-	if (ac == 0 || av == NULL)
+	if (ac <= 0 || av == NULL)
 		return (NULL);
 
 /* finds length of all arguments, + \n + '\0' */
@@ -34,11 +34,11 @@ char *argstostr(int ac, char **av)
 	if (ptr == NULL)
 		return (NULL);
 
-	for (s = 0; s < ac; s++)
+	for (i = 0; i < ac; i++)
 	{
-		for (j = 0, k = 0; av[s][j] != '\0'; j++, k++)
+		for (j = 0, k = 0; av[i][j] != '\0'; j++, k++)
 		{
-			ptr[k] = av[s][j];
+			ptr[k] = av[i][j];
 		}
 		ptr[j] = '\n';
 		k++;
