@@ -40,8 +40,9 @@ char *str_concat(char *s1, char *s2)
 		ptr[i] = s1[i];
 
 /* ptr[i] at end of s1, start here s1 left off at ptr[i] */
-	for (j = 0; s2[j] != '\0';i++, j++)
+	for (j = 0; s2[j] != '\0'; i++, j++)
 		ptr[i] = s2[j];
 
+	ptr[i] = '\0';
 	return (ptr);
 }
