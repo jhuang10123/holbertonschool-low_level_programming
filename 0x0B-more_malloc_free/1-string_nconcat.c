@@ -34,6 +34,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	len1 = _strlen(s1);
 	len2 = _strlen(s2);
 
+/* only want len2 to replace n if n is bigger */
 	if (len2 < n)
 		n = len2;
 
