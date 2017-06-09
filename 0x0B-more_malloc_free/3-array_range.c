@@ -8,15 +8,14 @@
 int *array_range(int min, int max)
 {
 	int *ptr;
-	int size, j, i, k;
+	int size, i, k;
 
 	if (min > max)
 		return (NULL);
 
-	for (j = min; j <= max; j++)
-		size++;
+	size = max - min + 1;
 
-	ptr = malloc(sizeof(int) * size + 1);
+	ptr = malloc(sizeof(int) * size);
 	if (ptr == NULL)
 		return (NULL);
 
