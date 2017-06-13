@@ -1,7 +1,7 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
 #include <stdio.h>
-
+#include <stdlib.h>
 /**
  * struct dog - new structure
  * @name: name of dog
@@ -14,7 +14,6 @@ typedef struct dog
 	float age;
 	char *owner;
 } dog_t;
-
 int _putchar(char c);
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
