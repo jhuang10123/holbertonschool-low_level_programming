@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 4)
 	{
-		printf(" arg ct Error\n");
+		printf("Error\n");
 		exit(98);
 	}
 
@@ -20,15 +20,15 @@ int main(int argc, char *argv[])
 	b = atoi(argv[3]);
 	operator = argv[2];
 
-	if (b == 0 && (*(argv[2]) == '/' || *(argv[2]) ==  '%'))
+	if (b == 0 && (*operator == '/' || *operator ==  '%'))
 	{
-		printf(" division Error\n");
+		printf("Error\n");
 		exit(100);
 	}
 
 	if (get_op_func(operator) == NULL)
 	{
-		printf("null Error\n");
+		printf("Error\n");
 		exit(99);
 	}
 
