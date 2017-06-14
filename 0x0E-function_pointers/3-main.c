@@ -1,4 +1,4 @@
-#include "calc.h"
+#include "3-calc.h"
 /**
  * main - runs function depending on user input
  * @argc: argument count
@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 4)
 	{
-		printf("Error\n");
+		printf(" arg ct Error\n");
 		exit(98);
 	}
 
@@ -22,13 +22,13 @@ int main(int argc, char *argv[])
 
 	if (b == 0 && (*(argv[2]) == '/' || *(argv[2]) ==  '%'))
 	{
-		printf("Error\n");
+		printf(" division Error\n");
 		exit(100);
 	}
 
 	if (get_op_func(operator) == NULL)
 	{
-		printf("Error\n");
+		printf("null Error\n");
 		exit(99);
 	}
 
