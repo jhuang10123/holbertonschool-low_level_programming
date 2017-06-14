@@ -16,10 +16,10 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i;
 
-	for (i = 0; ops->op != NULL; i++)
+	for (i = 0; ops[i].op != NULL; i++)
 	{
-		if (s == ops->op)
-			return (ops->f);
+		if (s == ops[i].op)
+			return (ops[i].f);
 	}
 	return (NULL);
 }
