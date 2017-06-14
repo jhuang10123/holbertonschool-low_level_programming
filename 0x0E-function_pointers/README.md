@@ -1,0 +1,2 @@
+*0x0E. C - Function pointers*: 
+Learning Objectives - Function pointers and how to use them. Understanding what does a function pointer hold and where does a function pointer should point to in the virtual memory
