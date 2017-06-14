@@ -2,6 +2,7 @@
 /**
  * get_op_func - selects operation function to perform asked by user
  * operator passed as argument to the program
+ * @s: operator to evaluate
  * Return: pointer to the function that corresponds to the operator
  */
 int (*get_op_func(char *s))(int, int)
