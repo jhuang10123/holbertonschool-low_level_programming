@@ -3,7 +3,7 @@
  * main - runs function depending on user input
  * @argc: argument count
  * @argv: argument vector
- * Return: 0 on success, -1 on failure
+ * Return: always 0
  */
 int main(int argc, char *argv[])
 {
