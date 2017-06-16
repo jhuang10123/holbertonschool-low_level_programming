@@ -62,11 +62,14 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == list[j].type[0])
 			{
-				printf(", ");
 				list[j].f(valist);
+				printf(", ");
 			}
 			j++;
 		}
 		i++;
 	}
+	printf("\n");
+	va_end(valist);
+
 }
