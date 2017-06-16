@@ -38,7 +38,7 @@ void print_str(va_list valist)
 	if (str == NULL)
 		printf("(nil)");
 	else
-		printf("%s", va_arg(valist, char *));
+		printf("%s", str);
 }
 
 
@@ -53,7 +53,7 @@ void print_all(const char * const format, ...)
 
 	id list[] = {
 		{"c", print_char},
-		{"d", print_int},
+		{"i", print_int},
 		{"f", print_float},
 		{"s", print_str},
 		{NULL, NULL}
