@@ -31,7 +31,14 @@ void print_float(va_list valist)
  */
 void print_str(va_list valist)
 {
-	printf("%s", va_arg(valist, char *));
+	char *str;
+
+	str = va_arg(valist, char *);
+
+	if (str == NULL)
+		printf("(nil)");
+	else
+		printf("%s", va_arg(valist, char *));
 }
 
 
