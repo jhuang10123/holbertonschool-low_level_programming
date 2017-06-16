@@ -4,7 +4,12 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-typedef struct identifiers{
+/**
+ * @type: argument type
+ * @f: function pointer to argument type
+ */
+typedef struct identifiers
+{
 	char *type;
 	void(*f)();
 }id;
