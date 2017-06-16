@@ -49,6 +49,7 @@ void print_str(va_list valist)
 void print_all(const char * const format, ...)
 {
 	int i, j;
+	char *separator;
 	va_list valist;
 
 	id list[] = {
@@ -61,6 +62,8 @@ void print_all(const char * const format, ...)
 
 	va_start(valist, format);
 
+	separator = "";
+
 	i = 0;
 	while (format != NULL && format[i] != '\0')
 	{
@@ -69,8 +72,9 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == list[j].type[0])
 			{
+				printf("%s", separator);
 				list[j].f(valist);
-				printf(", ");
+				separator = ", ";
 			}
 			j++;
 		}
