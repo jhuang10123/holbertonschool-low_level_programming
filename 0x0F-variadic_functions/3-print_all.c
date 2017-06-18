@@ -36,9 +36,8 @@ void print_str(va_list valist)
 	str = va_arg(valist, char *);
 
 	if (str == NULL)
-		printf("(nil)");
-	else
-		printf("%s", str);
+		str = "(nil)";
+	printf("%s", str);
 }
 
 
