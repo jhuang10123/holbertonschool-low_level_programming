@@ -12,11 +12,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	va_start(valist, n);
 
-
-	str = va_arg(valist, char *);
-
 	for (i = 0; i < n; i++)
 	{
+		str = va_arg(valist, char *);
 		if (str == NULL)
 			printf("(nil)");
 
