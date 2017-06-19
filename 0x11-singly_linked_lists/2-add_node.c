@@ -17,7 +17,7 @@ int _strlen(char *s)
  * add_node - adds a new node at the beginning of a list_t list
  * @head: pointer to the pointer head(used for modifying head)
  * @str: string in new node
- * Return: address of new node
+ * Return: address of new node or NULL
  */
 list_t *add_node(list_t **head, const char *str)
 {
