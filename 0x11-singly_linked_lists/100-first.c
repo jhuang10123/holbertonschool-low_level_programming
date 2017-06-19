@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * before_main: executes before main function
+ * before_main - executes before main function
  */
 void before_main(void)
 {
