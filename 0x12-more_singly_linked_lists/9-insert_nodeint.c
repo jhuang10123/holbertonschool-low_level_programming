@@ -17,18 +17,17 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (new_node == NULL)
 		return (NULL);
 
-	if (*head != NULL)
+	if (head != NULL)
 	{
 		new_node->n = n;
-/* edge case - if empty list /
+/* edge case - if empty list
    if (*head == NULL)
    {
    new_node->next = NULL;
    temp->next = new_node;
    }
-*/
 
-/* edge case - if at beg. of list */
+edge case - if at beg. of list */
 		if (idx == 0)
 		{
 			*head = new_node;
