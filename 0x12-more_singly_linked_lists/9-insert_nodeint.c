@@ -13,14 +13,18 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	temp = *head;
 
-	if (*head == NULL)
-		return (NULL);
-
 	new_node = malloc(sizeof(listint_t));
 	if (new_node == NULL)
 		return (NULL);
 
 	new_node->n = n;
+
+/* edge case - if empty list */
+	if (*head == NULL)
+	{
+		new_node->next = NULL;
+		temp->next = new_node;
+	}
 
 /* edge case - if at beg. of list */
 	if (idx == 0)
@@ -30,24 +34,22 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (new_node);
 	}
 
-/*
-	if (temp == NULL)
-	{
-		free(new_node);
-		return (NULL);
-	}
-*/
 	for (i = 0; i < (idx - 1); i++)
 	{
 		temp = temp->next;
+/* if idx > list */
 		if (temp == NULL)
+		{
+			free(new_node);
 			return (NULL);
+		}
 	}
 
 /* edge case - if at end of list */
 	if (temp->next == NULL)
 		new_node->next = NULL;
 
+/* normal case */
 	else
 		new_node->next = temp->next;
 
