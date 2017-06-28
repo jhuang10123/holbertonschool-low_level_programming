@@ -1,18 +1,5 @@
 #include"holberton.h"
 /**
- *
- */
-int _pow(int n)
-{
-	int i = 1;
-	while (n >= 0)
-	{
-		i *= 2;
-	}
-	return (i);
-}
-
-/**
  * binary_to_uint - converts a binary number to an unsigned int
  * @b: pointer to binary string
  * Return: converted number or 0 on failure
