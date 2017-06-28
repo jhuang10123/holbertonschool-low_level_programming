@@ -36,12 +36,13 @@ edge case - if at beg. of list */
 		}
 		for (i = 0; i < (idx - 1) && temp != NULL; i++)
 			temp = temp->next;
-		if (temp != NULL)
-		{
-			new_node->next = temp->next;
-			temp->next = new_node;
-		}
 	}
+	if (temp != NULL)
+	{
+		new_node->next = temp->next;
+		temp->next = new_node;
+	}
+
 	else
 	{
 		free(new_node);
