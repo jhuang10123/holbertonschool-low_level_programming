@@ -7,10 +7,6 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-/*
-m ^ n. compare difference
- */
-
 	unsigned long int diff, num;
 	int i;
 
