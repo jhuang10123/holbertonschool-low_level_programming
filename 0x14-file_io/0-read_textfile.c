@@ -25,7 +25,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd_read == -1)
 		return (0);
 
-	fd_write = write(STDOUT_FILENO, buffer, letters);
+/* use fd_read bc want bytes of what was actually read */
+	fd_write = write(STDOUT_FILENO, buffer, fd_read);
 	if (fd_write == -1)
 		return (0);
 
