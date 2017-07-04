@@ -26,7 +26,10 @@ void exit_fcn(int n, char *file)
 }
 
 /**
- *
+ * check_close - close file descriptor
+ * @fd: file descriptor
+ * @file: name of file
+ * Return: n if close success
  */
 int check_close(int fd, char *file)
 {
@@ -65,11 +68,11 @@ int main (int argc, char *argv[])
 		check_close(fd_from, file_from);
 		exit_fcn(99, file_to);
 	}
-	buffer = malloc(sizeof(char) * 1204);
+	buffer = malloc(sizeof(char) * BUFLEN);
 	if (buffer == NULL)
 		return (1);
 
-	fd_read = read(fd_from, buffer, 1204);
+	fd_read = read(fd_from, buffer, BUFLEN);
 	if (fd_read == -1)
 	{
 		check_close(fd_from, file_from);
@@ -78,14 +81,14 @@ int main (int argc, char *argv[])
 	}
 	while (fd_read > 0)
 	{
-		fd_write = write(fd_to, buffer, 1204);
+		fd_write = write(fd_to, buffer, BUFLEN);
 		if (fd_write == -1)
 		{
 			check_close(fd_from, file_from);
 			check_close(fd_to, file_to);
 			exit_fcn(99, file_to);
 		}
-		fd_read = read(fd_from, buffer, 1204);
+		fd_read = read(fd_from, buffer, BUFLEN);
 		if (fd_read == -1)
 		{
 			check_close(fd_from, file_from);
