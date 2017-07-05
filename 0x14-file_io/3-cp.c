@@ -45,7 +45,7 @@ int check_close(int fd, char *file)
  */
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to, read_count, write_count, fd_close, fd_close2;
+	int fd_from, fd_to, read_count, write_count;
 	char *buffer, *file_from, *file_to;
 
 	file_from = argv[1], file_to = argv[2];
@@ -89,8 +89,8 @@ int main(int argc, char *argv[])
 			exit_fcn(98, file_from);
 		}
 	}
-	fr_close = check_close(fd_from, NULL);
-	to_close = check_close(fd_to, NULL);
+	check_close(fd_from, NULL);
+	check_close(fd_to, NULL);
 	free(buffer);
 	return (0);
 }
