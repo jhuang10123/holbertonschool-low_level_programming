@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#define BUFLEN 1024
+#define BUFLEN 1204
 
 int _putchar(char c);
 void exit_fcn(int n, char *file);

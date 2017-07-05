@@ -49,7 +49,7 @@ int check_close(int fd, char *file)
  */
 int main (int argc, char *argv[])
 {
-	int fd_from, fd_to, fd_read, fd_write, fd_close, fd_close2;
+	int fd_from, fd_to, read_count, write_count, fd_close, fd_close2;
 	char *buffer, *file_from, *file_to;
 
 	file_from = argv[1];
@@ -62,7 +62,7 @@ int main (int argc, char *argv[])
 		if (fd_from == -1)
 			exit_fcn(98, file_from);
 
-	fd_to = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 00664);
+	fd_to = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
 		check_close(fd_from, file_from);
@@ -72,24 +72,24 @@ int main (int argc, char *argv[])
 	if (buffer == NULL)
 		return (1);
 
-	fd_read = read(fd_from, buffer, BUFLEN);
-	if (fd_read == -1)
+	read_count = read(fd_from, buffer, BUFLEN);
+	if (read_count == -1)
 	{
 		check_close(fd_from, file_from);
 		check_close(fd_to, file_to);
 		exit_fcn(98, file_from);
 	}
-	while (fd_read > 0)
+	while (read_count > 0)
 	{
-		fd_write = write(fd_to, buffer, BUFLEN);
-		if (fd_write == -1)
+		write_count = write(fd_to, buffer, read_count);
+		if (write_count == -1)
 		{
 			check_close(fd_from, file_from);
 			check_close(fd_to, file_to);
 			exit_fcn(99, file_to);
 		}
-		fd_read = read(fd_from, buffer, BUFLEN);
-		if (fd_read == -1)
+		read_count = read(fd_from, buffer, BUFLEN);
+		if (read_count == -1)
 		{
 			check_close(fd_from, file_from);
 			check_close(fd_to, file_to);
