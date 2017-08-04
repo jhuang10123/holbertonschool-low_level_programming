@@ -6,5 +6,17 @@
  */
 int sum_dlistint(dlistint_t *head)
 {
+	int i;
 
+	if (head == NULL)
+		return (0);
+
+	i = 0;
+	while (head != NULL)
+	{
+		i += head->n;
+		head = head->next;
+	}
+
+	return (i);
 }
