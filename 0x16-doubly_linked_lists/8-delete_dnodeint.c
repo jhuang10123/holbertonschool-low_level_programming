@@ -18,34 +18,32 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 
 	temp = *head;
 
-
 	if (index == 0)
 	{
+		if (temp->next == NULL)
+		{
+			free(temp);
+			*head = NULL;
+			return (1);
+		}
 		*head = temp->next;
-		if (temp->next != NULL)
-			temp->prev = NULL;
-
-		free (temp);
+		(*head)->prev = NULL;
+		free(temp);
 		return (1);
 	}
 	for (i = 0; i < index; i++)
 	{
-
 		if (temp->next == NULL)
 			return (-1);
-
 		temp = temp->next;
 	}
-
 /* move prev-next to the node after temp
-if not last node
-next to have next node's prev point at temp->prev
-
+ * if not last node
+ * next to have next node's prev point at temp->prev
  */
 	temp->prev->next = temp->next;
 	if (temp->next != NULL)
 		temp->next->prev = temp->prev;
-
 	free(temp);
 	return (1);
 }
