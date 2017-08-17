@@ -1,0 +1,6 @@
+[submodule "0x18-stacks_queues_lifo_fifo"]
+	path = 0x18-stacks_queues_lifo_fifo
+	url = http://www.github.com/jhuang10123/monty.git
+[submodule "0x18-stack_fifo_lifo"]
+	path = 0x18-stack_fifo_lifo
+	url = http://www.github.com/jhuang10123/monty.git
