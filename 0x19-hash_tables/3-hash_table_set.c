@@ -3,7 +3,7 @@
  * add_node - creates new linked list node
  * @key: key
  * @value: value of node
- * Return: 1 on success, 0 otherwise
+ * Return: new node
  */
 hash_node_t *add_node(const char *key, const char *value)
 {
