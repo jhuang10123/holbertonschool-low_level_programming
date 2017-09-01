@@ -5,13 +5,8 @@
  * @value: value of node
  * Return: new node
  */
-hash_node_t *add_node(const char *key, const char *value)
+hash_node_t *add_node(hash_node_t *new, const char *key, const char *value)
 {
-	hash_node_t *new;
-
-	new = malloc(sizeof(hash_node_t));
-	if (new == NULL)
-                return (NULL);
 
         new->value = strdup(value);
 	if (new->value == NULL)
@@ -62,23 +57,33 @@ int find_node(hash_node_t *array, const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *new;
+	hash_node_t *new, *head;
 
 	if (key == NULL || strlen(key) == 0 || ht == NULL)
 		return 0;
+
+	new = malloc(sizeof(hash_node_t));
+	if (new == NULL)
+		return (0);
 
 /* locate index */
 	index = key_index((const unsigned char *)key, ht->size);
 
 /* locate and update node if exists */
 	if (find_node(ht->array[index], key, value) == 0)
+	{
+		free(new);
 		return (0);
+	}
 /* add new node if doesn't exist */
-	new = add_node(key, value);
-	if (new == NULL)
+	if (add_node(new, key, value) == NULL)
+	{
+		free(new);
 		return (0);
-
-	new->next = ht->array[index];
+	}
+	head = ht->array[index];
+	new->next = head;
+	head = new;
 
 	return (1);
 
