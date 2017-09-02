@@ -46,7 +46,6 @@ int find_node(hash_node_t *array, const char *key, const char *value)
 	return (1);
 }
 
-
 /**
  * hash_table_set  - adds an element to the hash table
  * @ht: hash table to update the key/value to
@@ -84,6 +83,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	head = ht->array[index];
 	new->next = head;
 	head = new;
+
+	print_list(head);
 
 	return (1);
 
