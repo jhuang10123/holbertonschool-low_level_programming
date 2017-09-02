@@ -5,23 +5,23 @@
  * @value: value of node
  * Return: new node
  */
-hash_node_t *add_node(hash_node_t *new, const char *key, const char *value)
+hash_node_t *add_node(hash_node_t **new, const char *key, const char *value)
 {
 
-        new->value = strdup(value);
-	if (new->value == NULL)
+        (*new)->value = strdup(value);
+	if ((*new)->value == NULL)
 	{
 		free(new);
 		return(NULL);
 	}
 
-	new->key = strdup(key);
-	if (new->key == NULL)
+	(*new)->key = strdup(key);
+	if ((*new)->key == NULL)
 	{
 		free(new);
 		return (NULL);
 	}
-	return (new);
+	return (*new);
 }
 
 /**
@@ -75,7 +75,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 /* add new node if doesn't exist */
-	if (add_node(new, key, value) == NULL)
+	if (add_node(&new, key, value) == NULL)
 	{
 		free(new);
 		return (0);
@@ -83,8 +83,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	head = ht->array[index];
 	new->next = head;
 	head = new;
-
-	print_list(head);
 
 	return (1);
 
