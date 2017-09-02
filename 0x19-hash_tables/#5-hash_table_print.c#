@@ -17,6 +17,7 @@ void hash_table_print(const hash_table_t *ht)
 /* check every index in array */
 	while (index < ht->size)
 	{
+/* traverse each list  */
 		tmp = ht->array[index];
 		while (tmp != NULL)
 		{
