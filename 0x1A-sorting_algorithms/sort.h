@@ -7,7 +7,6 @@
  * struct listint_s - Doubly linked list node
  *
  * @n: Integer stored in the node
- * @prev: pointer to the previous element of the list
  * @next: Pointer to the next element of the list
  */
 typedef struct listint_s
@@ -20,13 +19,12 @@ typedef struct listint_s
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void bubble_sort(int *array, size_t size);
+void swap_dlist(listint_t **head, listint_t *c_node, listint_t *n_node);
 void insertion_sort_list(listint_t **list);
+void swap_array(int *array, int idx_1, int idx_2);
 void selection_sort(int *array, size_t size);
-
-/* quick sort */
+void swap(int *array, int idx_1, int idx_2);
+int partition_lomuto(int *array, int start_idx, int end_idx);
 void quick_sort(int *array, size_t size);
-void swap(int *elem1, int *elem2);
-int partition(int *array, size_t size, int start, int end);
-void quick_sort_rec(int *array, size_t size, int start, int end);
 
 #endif /* SORT_H */

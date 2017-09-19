@@ -1,31 +1,41 @@
 #include "sort.h"
+
 /**
- * bubble_sort - sorts an array of int in ascending order using the Bubble sort
- * @array: array to be sorted
- * @size: size of array
+ * bubble_sort - sort an array of integers in ascending order using bubble sort
+ * @array: pointer to integer
+ * @size: size of the array
+ * Return: void
  */
+
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, j, temp, k;
+	short flag;
+	unsigned int a_loop, elem_idx;
+	int temp;
 
-	for (i = 0; i < size - 1 ; i++)
+	if (!array || !*array || size == 1)
+		return;
+
+	a_loop = size;
+	while (a_loop > 0)  /* number of times looping through the array */
 	{
-		for (j = 0; j < size - i - 1 ; j++)
+		elem_idx = 0;
+		flag = 0; /* reset for each loop through array */
+		while (elem_idx < a_loop - 1)  /* check only elems not sorted */
 		{
-			if (array[j] > array[j + 1])
+			if (array[elem_idx] > array[elem_idx + 1])
 			{
-				temp = array[j + 1];
-				array[j + 1] = array[j];
-				array[j] = temp;
-
-				k = 0;
-				while (k < size)
-				{
-					printf("%d, ", array[k]);
-					k++;
-				}
-				printf("\n");
+				temp = array[elem_idx];
+				array[elem_idx] = array[elem_idx + 1];
+				array[elem_idx + 1] = temp;
+				print_array(array, size);
+				flag = 1; /* sorting not done */
 			}
+			elem_idx++;
 		}
+		a_loop--;
+
+		if (flag == 0)  /* no elements need swapping; sorting complete */
+			break;
 	}
 }
