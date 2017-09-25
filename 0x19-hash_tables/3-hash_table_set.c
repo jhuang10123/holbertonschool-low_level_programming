@@ -1,32 +1,11 @@
 #include "hash_tables.h"
-/**
- * add_node - creates new linked list node
- * @key: key
- * @value: value of node
- * Return: new node
- */
-hash_node_t *add_node(hash_node_t **new, const char *key, const char *value)
-{
-
-        (*new)->value = strdup(value);
-	if ((*new)->value == NULL)
-	{
-		free(new);
-		return(NULL);
-	}
-
-	(*new)->key = strdup(key);
-	if ((*new)->key == NULL)
-	{
-		free(new);
-		return (NULL);
-	}
-	return (*new);
-}
-
-/**
+/*
  * find node - updates key value if key exists
- */
+ * @array: hash table
+ * @key: key
+ * @value: value
+ * Return: 1 on success, 0 on failure
+ 
 int find_node(hash_node_t *array, const char *key, const char *value)
 {
 	hash_node_t *temp;
@@ -45,45 +24,64 @@ int find_node(hash_node_t *array, const char *key, const char *value)
 	}
 	return (1);
 }
+*/
 
 /**
  * hash_table_set  - adds an element to the hash table
  * @ht: hash table to update the key/value to
  * @key: key
  * @value: value associated with the key
- * Return: 1 on success, 0 otherwise
+ * Return: 1 on success, 0  otherwise
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *new, *head;
+	hash_node_t *new, *temp;
 
-	if (key == NULL || strlen(key) == 0 || ht == NULL)
+
+	if (key == NULL || strlen(key) == 0 || value == NULL ||ht == NULL)
 		return 0;
+
+	index = key_index((unsigned char *)key, ht->size);
+	temp = ht->array[index];
 
 	new = malloc(sizeof(hash_node_t *));
 	if (new == NULL)
 		return (0);
 
-/* locate index */
-	index = key_index((const unsigned char *)key, ht->size);
-
 /* locate and update node if exists */
-	if (find_node(ht->array[index], key, value) == 0)
+	while (temp != NULL)
 	{
+		if (strcmp(temp->key, key) == 0)
+		{
+			temp->value = strdup(value);
+			if (temp->value == NULL)
+				return 0;
+			else
+				return (1);
+		}
+		temp = temp->next;
+	}
+/* create new node */
+	new->next = NULL;
+	new->key = strdup(key);
+	new->value = strdup(value);
+	if (new->key == NULL || new->value == NULL)
+	{
+		free(new->key);
+		free(new->value);
 		free(new);
 		return (0);
 	}
-/* add new node if doesn't exist */
-	if (add_node(&new, key, value) == NULL)
-	{
-		free(new);
-		return (0);
-	}
-	head = ht->array[index];
-	new->next = head;
-	head = new;
 
+	if (ht->array[index] == NULL)
+		ht->array[index] = new;
+
+	else
+	{
+		new->next = ht->array[index];
+		ht->array[index] = new;
+	}
 	return (1);
 
 }
