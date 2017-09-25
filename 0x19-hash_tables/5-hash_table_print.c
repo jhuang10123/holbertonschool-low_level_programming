@@ -14,7 +14,7 @@ void hash_table_print(const hash_table_t *ht)
 
 	index = 0;
 
-	printf("{ ");
+	printf("{");
 /* check every index in array */
 	while (index < ht->size)
 	{
@@ -31,5 +31,4 @@ void hash_table_print(const hash_table_t *ht)
 		index++;
 	}
 	printf("}\n");
-
 }
