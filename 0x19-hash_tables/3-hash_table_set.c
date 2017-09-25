@@ -1,31 +1,4 @@
 #include "hash_tables.h"
-/*
- * find node - updates key value if key exists
- * @array: hash table
- * @key: key
- * @value: value
- * Return: 1 on success, 0 on failure
- 
-int find_node(hash_node_t *array, const char *key, const char *value)
-{
-	hash_node_t *temp;
-
-	temp = array;
-
-	while (temp != NULL)
-	{
-		if (strcmp(temp->key, key) == 0)
-		{
-			temp->value = strdup(value);
-			if(temp->value == NULL)
-				return (0);
-		}
-		temp = temp->next;
-	}
-	return (1);
-}
-*/
-
 /**
  * hash_table_set  - adds an element to the hash table
  * @ht: hash table to update the key/value to
@@ -35,20 +8,15 @@ int find_node(hash_node_t *array, const char *key, const char *value)
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int index;
-	hash_node_t *new, *temp;
+	unsigned long int index; hash_node_t *new, *temp;
 
-
-	if (key == NULL || strlen(key) == 0 || value == NULL ||ht == NULL)
-		return 0;
-
+	if (key == NULL || strlen(key) == 0 || value == NULL || ht == NULL)
+		return (0);
 	index = key_index((unsigned char *)key, ht->size);
 	temp = ht->array[index];
-
 	new = malloc(sizeof(hash_node_t *));
 	if (new == NULL)
 		return (0);
-
 /* locate and update node if exists */
 	while (temp != NULL)
 	{
@@ -56,7 +24,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			temp->value = strdup(value);
 			if (temp->value == NULL)
-				return 0;
+				return (0);
 			else
 				return (1);
 		}
@@ -70,18 +38,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		free(new->key);
 		free(new->value);
-		free(new);
-		return (0);
+		free(new); return (0);
 	}
-
 	if (ht->array[index] == NULL)
 		ht->array[index] = new;
-
 	else
 	{
 		new->next = ht->array[index];
 		ht->array[index] = new;
 	}
 	return (1);
-
 }
