@@ -26,7 +26,7 @@ int binary_tree_is_full(const binary_tree_t *tree)
 {
 	int left, right;
 
-	if (tree == NULL || tree->left == NULL | tree->right == NULL)
+	if (tree == NULL)
 		return (0);
 
 	if (isleaf(tree) == 1)
