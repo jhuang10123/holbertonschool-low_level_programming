@@ -6,4 +6,16 @@
  */
 binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 {
+    binary_tree_t *grandpa;
+
+    grandpa = node->parent->parent;
+
+    if (node == NULL || node->parent == NULL || grandpa == NULL
+        || grandpa->right == NULL || grandpa->left == NULL)
+        return (NULL);
+
+    if (grandpa->right == node->parent)
+        return (grandpa->left);
+    else
+        return (grandpa->right);
 }
