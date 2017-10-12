@@ -6,13 +6,8 @@
  */
 int isleaf(const binary_tree_t *node)
 {
-	if (node == NULL)
+    if (node != NULL && (node->left == NULL && node->right == NULL))
 		return (1);
-	if (node->right == NULL && node->left == NULL)
-		return (1);
-	if (node->right != NULL && node->left != NULL)
-		return(isleaf(node->right) &&
-			isleaf(node->left));
 
 	return (0);
 }
@@ -26,7 +21,7 @@ int binary_tree_is_full(const binary_tree_t *tree)
 {
 	int left, right;
 
-	if (tree == NULL || tree->left == NULL | tree->right == NULL)
+	if (tree == NULL || tree->left == NULL || tree->right == NULL)
 		return (0);
 
 	if (isleaf(tree) == 1)
