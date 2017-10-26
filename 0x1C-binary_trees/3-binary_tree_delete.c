@@ -5,17 +5,17 @@
  */
 void binary_tree_delete(binary_tree_t *tree)
 {
-        if (tree == NULL)
-                return;
+	if (tree == NULL)
+		return;
 
-        binary_tree_delete(tree->left);
-        binary_tree_delete(tree->right);
-        free (tree);
+	binary_tree_delete(tree->left);
+	binary_tree_delete(tree->right);
+	free(tree);
 }
 
-/*
-recursively delete each node
-recursion -> go to last node and delete upward
-1. remove reference to the node from its parent
-2. free node
- */
+/**
+* recursively delete each node
+* recursion -> go to last node and delete upward
+* 1. remove reference to the node from its parent
+* 2. free node
+*/
