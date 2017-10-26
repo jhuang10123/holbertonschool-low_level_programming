@@ -8,10 +8,13 @@ int isleaf(const binary_tree_t *node)
 {
 	if (node == NULL)
 		return (1);
-	if (node->parent != NULL && (node->right == NULL && node->left == NULL))
+	if (node->right == NULL && node->left == NULL)
 		return (1);
-	else
-		return (0);
+	if (node->right != NULL && node->left != NULL)
+		return(isleaf(node->right) &&
+			isleaf(node->left));
+
+	return (0);
 }
 
 /**
