@@ -12,10 +12,3 @@ void binary_tree_delete(binary_tree_t *tree)
 	binary_tree_delete(tree->right);
 	free(tree);
 }
-
-/**
-* recursively delete each node
-* recursion -> go to last node and delete upward
-* 1. remove reference to the node from its parent
-* 2. free node
-*/
