@@ -6,7 +6,7 @@
  */
 int isleaf(const binary_tree_t *node)
 {
-    if (node != NULL && (node->left == NULL && node->right == NULL))
+	if (node != NULL && (node->left == NULL && node->right == NULL))
 		return (1);
 
 	return (0);
