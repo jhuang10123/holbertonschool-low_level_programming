@@ -1,6 +1,7 @@
 #include "search_algos.h"
 /**
- * print_array: prints an array of int
+ * print_array - prints an array of int
+ * @array: array to be printed
  * @start: starting point
  * @end: ending point
  */
@@ -26,7 +27,7 @@ int binary_search(int *array, size_t size, int value)
 {
   size_t mid, left, right;
 
-  if (array == NULL)
+  if (array == NULL || size <= 0)
     return (-1);
 
   left = mid = 0;
